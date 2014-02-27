@@ -20,13 +20,16 @@ public class Main {
 		B.addAdjacentNodes(F, 10);
 		C.addAdjacentNodes(H, 20);
 		C.addAdjacentNodes(F, 50);
+		C.addAdjacentNodes(D, 10);
 		D.addAdjacentNodes(G, 20);
 		D.addAdjacentNodes(C, 10);
 		E.addAdjacentNodes(B, 50);
 		E.addAdjacentNodes(G, 30);
 		F.addAdjacentNodes(C, 10);
+		F.addAdjacentNodes(D, 40);
 		
-		Dijkastra test = new Dijkastra(A);
+		Node[] list = {A, B, C, D, E, F, G, H};
+		Dijkastra test = new Dijkastra(list, A);
 		
 	}
 }

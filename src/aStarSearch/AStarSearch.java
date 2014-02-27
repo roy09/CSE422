@@ -1,8 +1,9 @@
-package last_try;
+package aStarSearch;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Stack;
 
 public class AStarSearch {
 	
@@ -26,21 +27,29 @@ public class AStarSearch {
 				}
 				newNode.parent = n;
 				newNode.total = newNode.stDistance + (int)newNode.adjacentNodes.get(n);
-				System.out.println(newNode.name + " - " + n.name + " " + "Straight Dist: " + newNode.stDistance 
-						+ " inter dist: " + (int)newNode.adjacentNodes.get(n) + " total " + newNode.total);
+				//System.out.println(newNode.name + " - " + n.name + " " + "Straight Dist: " + newNode.stDistance 
+				//		+ " inter dist: " + (int)newNode.adjacentNodes.get(n) + " total " + newNode.total);
 				frontier.add(newNode);
 				
 				if(newNode == goal){
 					System.out.println("We've reached");
+					System.out.print("The path is : ");
 				}
 			}		
 		}
 		
+		Stack<String> finalPath = new Stack<String>();
 		Node temp = goal;
 		while(temp != null){
-			System.out.println(temp.name);
+			finalPath.add(temp.name);
 			temp = temp.parent;
 		}
+		
+		while(!finalPath.isEmpty()){
+			System.out.print(finalPath.pop() + " ");
+		}
+		
+		
 	}
 	
 	public static Comparator<Node> comp = new Comparator<Node>() {

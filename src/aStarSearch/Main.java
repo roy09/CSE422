@@ -1,4 +1,4 @@
-package last_try;
+package aStarSearch;
 
 public class Main {
 	public static void main(String[] args){
