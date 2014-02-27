@@ -6,7 +6,7 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 
 
-public class Dijkastra {
+public class Dijkstra {
 
 	boolean complete = false;
 	int size = 0;
@@ -14,7 +14,7 @@ public class Dijkastra {
 	ArrayList<Node> visited = new ArrayList<Node>();
 	Queue<Node> pathTable;
 	
-	public Dijkastra(Node[] paths, Node start) {
+	public Dijkstra(Node[] paths, Node start) {
 		//adding nodes to the unvisited array
 		for(Node path: paths){
 			this.paths.add(path);

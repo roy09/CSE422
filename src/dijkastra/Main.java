@@ -29,7 +29,7 @@ public class Main {
 		F.addAdjacentNodes(D, 40);
 		
 		Node[] list = {A, B, C, D, E, F, G, H};
-		Dijkastra test = new Dijkastra(list, A);
+		Dijkstra test = new Dijkstra(list, A);
 		
 	}
 }
