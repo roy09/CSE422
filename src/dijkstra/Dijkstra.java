@@ -1,4 +1,4 @@
-package dijkastra;
+package dijkstra;
 
 import java.util.ArrayList;
 import java.util.Comparator;

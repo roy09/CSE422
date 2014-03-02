@@ -1,4 +1,4 @@
-package dijkastra;
+package dijkstra;
 
 public class Main {
 	public static void main(String[] args){

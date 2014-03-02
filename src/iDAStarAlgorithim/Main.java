@@ -56,7 +56,6 @@ public class Main {
 		Mehadia.addAdjacentNodes(Dobreta, 75);
 		Dobreta.addAdjacentNodes(Cralova, 120);
 		
-		Oradea.addAdjacentNodes(Bucharest, 10);
 		
 		iDAStarSearch test = new iDAStarSearch(Arad, Bucharest, 800);
 		
