@@ -1,5 +1,7 @@
 package iDAStarAlgorithim;
 
+import java.util.Scanner;
+
 public class Main {
 	public static void main(String[] args){
 		
@@ -36,10 +38,12 @@ public class Main {
 		Zerind.setDistance(374);
 		
 		//Declaring adjacent nodes
+		Arad.addAdjacentNodes(Timisoara, 118);
 		Arad.addAdjacentNodes(Zerind, 75);
+		Arad.addAdjacentNodes(Sibiu, 140);
+		
 		Zerind.addAdjacentNodes(Oradea, 71);
 		Oradea.addAdjacentNodes(Sibiu, 151);
-		Sibiu.addAdjacentNodes(Arad, 140);
 		Sibiu.addAdjacentNodes(Fagaras, 99);
 		Sibiu.addAdjacentNodes(RimnicuVilcea, 80);
 		RimnicuVilcea.addAdjacentNodes(Pitesti, 97);
@@ -50,14 +54,32 @@ public class Main {
 		Bucharest.addAdjacentNodes(Fagaras, 211);
 		Bucharest.addAdjacentNodes(Pitesti, 101);
 
-		Arad.addAdjacentNodes(Timisoara, 118);
 		Timisoara.addAdjacentNodes(Lugoj, 111);
 		Lugoj.addAdjacentNodes(Mehadia, 70);
 		Mehadia.addAdjacentNodes(Dobreta, 75);
 		Dobreta.addAdjacentNodes(Cralova, 120);
 		
+		Scanner in = new Scanner(System.in);
+		int limit = in.nextInt();
 		
-		iDAStarSearch test = new iDAStarSearch(Arad, Bucharest, 800);
+		
+		int increment = 10;
+		
+		//setting the first offset
+		limit -= increment;
+		
+		for(int count = 0; count < 10; count++){
+			iDAStarSearch test = new iDAStarSearch();
+			if (!test.iDAStarSearchedPath(Arad, Bucharest, limit + increment)){
+				if (count == 4){
+					increment = 100;
+				}
+				increment += increment;
+			} else {
+				break;
+			}
+			
+		}
 		
 		
 	}
