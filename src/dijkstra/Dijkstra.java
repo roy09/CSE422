@@ -8,7 +8,7 @@ import java.util.Queue;
 
 public class Dijkstra {
 
-	boolean complete = false;
+//	boolean complete = false;
 	int size = 0;
 	ArrayList<Node> paths = new ArrayList<Node>();
 	ArrayList<Node> visited = new ArrayList<Node>();
@@ -32,7 +32,7 @@ public class Dijkstra {
 		Node n = source;
 		//Check the adjacent nodes and move forward
 		int count = 0;
-		while(count != 7){
+		while(count != paths.size()){
 			//find the adjacent nodes
 			for(Object key: n.adjacentNodes.keySet()){
 				Node currentNode = (Node) key;
@@ -67,7 +67,7 @@ public class Dijkstra {
 			//System.out.print("Started " + n.name);
 
 			//System.out.println();
-			Node temp =(Node)pathTable.poll();
+			Node temp = (Node) pathTable.poll();
 			n = temp;
 			visited.add(temp);
 			count++;

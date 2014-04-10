@@ -33,7 +33,7 @@ public class singlePop {
 			}
 			System.out.println();
 		}
-		System.out.println("Collisions :" + this.collisions());
+//		System.out.println("Collisions :" + this.collisions());
 	}
 
 	public int collisions() {
@@ -193,5 +193,23 @@ public class singlePop {
 
 		return collisions;
 
+	}
+	
+	public void mutation(){
+		//this integer is gonna give a number of elements we will change in the
+		//array [range let's say shall be between 5 - 15]
+		int prob = (int)(Math.random() * 11);
+//		System.out.println(prob);
+		
+		for(int count = 0; count < prob; count++){
+			
+			//there has to be a random integer that would generate a valid place
+			//within the valid range of the board
+			int random1 = (int)(Math.random() * 8);
+			int random2 = (int)(Math.random() * 8);
+			int temp = board[random1][random1];
+			board[random1][random1] = board[random2][random2];
+			board[random2][random2] = temp;
+		}
 	}
 }

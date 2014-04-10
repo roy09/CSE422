@@ -40,7 +40,7 @@ public class iDAStarSearch {
 				frontier.push(newNode);
 //				System.out.println("Pushing " + newNode.name + " " + n.name);
 				if (newNode == goal) {
-					System.out.println("We've reached");
+					System.out.println("We've reached" + newNode.total);
 					System.out.print("The path is : ");
 					pathFound = true;
 				}
