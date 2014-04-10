@@ -24,21 +24,39 @@ public class main {
 		}
 		System.out.println();
 
+		//we need the pos of two mins
+		int min1Val = array[0];
+		int min2Val = array[0];
+		int min1Pos = 0;
+		int min2Pos = 0;
+		
+		for(int count = 0; count < 10; count++){
+			if(min1Val > array[count]){
+				min1Val = array[count];
+				min1Pos = count;
+			}
+		}
+		
+		for(int count = 0; count < 10; count++){
+			if(min1Pos == count){
+				continue;
+			}
+			if(min2Val > array[count]){
+				min2Val = array[count];
+				min2Pos = count;
+			}
+			
+		}
+		
+		System.out.println(min1Pos + " " + min1Val);
+		System.out.println(min2Pos + " " + min2Val);
+	
 		// create the next generation with another sample space of 10
-		singlePop solution = generationGenerator(sample);
+		singlePop solution = generationGenerator(sample, min1Pos, min2Pos, 1000);
 		solution.display();
 		System.out.println("Solution has " + solution.collisions()
 				+ " collisions");
 
-		// test what's wrong
-		// sample[5].display();
-		// System.out.println("arekta");
-		// sample[6].display();
-		//
-		// System.out.println();
-		// crossOver(sample[5], sample[6]);
-		// sample[5].display();
-		// System.out.println("onno ta");
 		// sample[6].display();
 
 	}
@@ -105,13 +123,13 @@ public class main {
 		}
 	}
 
-	public static singlePop generationGenerator(singlePop[] sample) {
+	public static singlePop generationGenerator(singlePop[] sample, int pos1, int pos2, int numOfGens) {
 		int genCounter = 0;
 		boolean solutionFound = false;
 		
 		
-		int a = (int) (Math.random() * 10);
-		int b = (int) (Math.random() * 10);
+		int a = pos1;
+		int b = pos2;
 		
 		singlePop toReturn = new singlePop();
 		singlePop pop1 = sample[a];
@@ -121,7 +139,7 @@ public class main {
 		System.out.println(toReturn.collisions());
 		System.out.println(pop1.collisions());
 		System.out.println(pop2.collisions());
-		while (genCounter != 100 && !solutionFound) {
+		while (genCounter != numOfGens && !solutionFound) {
 			crossOver(pop1, pop2);
 			makeConsistent(pop1);
 			makeConsistent(pop2);
